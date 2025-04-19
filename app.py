@@ -63,8 +63,8 @@ def predict():
     inputQuery18 = request.form['query18']
     inputQuery19 = request.form['query19']
 
-    # model = pickle.load(open("model.sav", "rb"))
-    model = joblib.load('model.sav')
+    # model = pickle.load(open("churn.model", "rb"))
+    model = joblib.load('churn.model')
     
     data = [[inputQuery1, inputQuery2, inputQuery3, inputQuery4, inputQuery5, inputQuery6, inputQuery7, 
              inputQuery8, inputQuery9, inputQuery10, inputQuery11, inputQuery12, inputQuery13, inputQuery14,

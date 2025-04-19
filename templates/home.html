@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Customer Churn Prediction</h2>
+        <form action="http://localhost:5000/" method="POST">
+            <div class="row">
+                <div class="col-sm-9">
+                    <!-- Input Fields for Features -->
+
+                    <div class="form-group">
+                        <label for="SeniorCitizen">SeniorCitizen:</label>
+                        <select class="form-control" id="SeniorCitizen" name="SeniorCitizen">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MonthlyCharges">MonthlyCharges:</label>
+                        <input type="number" class="form-control" id="MonthlyCharges" name="MonthlyCharges" placeholder="Enter Monthly Charges">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="TotalCharges">TotalCharges:</label>
+                        <input type="number" class="form-control" id="TotalCharges" name="TotalCharges" placeholder="Enter Total Charges">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender" name="gender">
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Partner">Partner:</label>
+                        <select class="form-control" id="Partner" name="Partner">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Dependents">Dependents:</label>
+                        <select class="form-control" id="Dependents" name="Dependents">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PhoneService">PhoneService:</label>
+                        <select class="form-control" id="PhoneService" name="PhoneService">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MultipleLines">MultipleLines:</label>
+                        <select class="form-control" id="MultipleLines" name="MultipleLines">
+                            <option value="No">No</option>
+                            <option value="No phone service">No phone service</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InternetService">InternetService:</label>
+                        <select class="form-control" id="InternetService" name="InternetService">
+                            <option value="DSL">DSL</option>
+                            <option value="Fiber optic">Fiber optic</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OnlineSecurity">OnlineSecurity:</label>
+                        <select class="form-control" id="OnlineSecurity" name="OnlineSecurity">
+                            <option value="No">No</option>
+                            <option value="No internet service">No internet service</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OnlineBackup">OnlineBackup:</label>
+                        <select class="form-control" id="OnlineBackup" name="OnlineBackup">
+                            <option value="No">No</option>
+                            <option value="No internet service">No internet service</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DeviceProtection">DeviceProtection:</label>
+                        <select class="form-control" id="DeviceProtection" name="DeviceProtection">
+                            <option value="No">No</option>
+                            <option value="No internet service">No internet service</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="TechSupport">TechSupport:</label>
+                        <select class="form-control" id="TechSupport" name="TechSupport">
+                            <option value="No">No</option>
+                            <option value="No internet service">No internet service</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="StreamingTV">StreamingTV:</label>
+                        <select class="form-control" id="StreamingTV" name="StreamingTV">
+                            <option value="No">No</option>
+                            <option value="No internet service">No internet service</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="StreamingMovies">StreamingMovies:</label>
+                        <select class="form-control" id="StreamingMovies" name="StreamingMovies">
+                            <option value="No">No</option>
+                            <option value="No internet service">No internet service</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Contract">Contract:</label>
+                        <select class="form-control" id="Contract" name="Contract">
+                            <option value="Month-to-month">Month-to-month</option>
+                            <option value="One year">One year</option>
+                            <option value="Two year">Two year</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PaperlessBilling">PaperlessBilling:</label>
+                        <select class="form-control" id="PaperlessBilling" name="PaperlessBilling">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PaymentMethod">PaymentMethod:</label>
+                        <select class="form-control" id="PaymentMethod" name="PaymentMethod">
+                            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                            <option value="Credit card (automatic)">Credit card (automatic)</option>
+                            <option value="Electronic check">Electronic check</option>
+                            <option value="Mailed check">Mailed check</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tenure_group">Tenure Group:</label>
+                        <select class="form-control" id="tenure_group" name="tenure_group">
+                            <option value="1 - 12">1 - 12</option>
+                            <option value="13 - 24">13 - 24</option>
+                            <option value="25 - 36">25 - 36</option>
+                            <option value="37 - 48">37 - 48</option>
+                            <option value="49 - 60">49 - 60</option>
+                            <option value="61 - 72">61 - 72</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Submit Button moved to the bottom -->
+            <div class="row mt-4">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Prediction Result Section -->
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <h4>Prediction Results</h4>
+                <!-- Single Output Box for Prediction -->
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" id="output1" name="output1" readonly>{{ prediction }}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
